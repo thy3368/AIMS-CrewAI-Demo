@@ -70,3 +70,8 @@ After which it will ask for a company and we're off!
 ## Credits:
 
 This repository is largely based on the example from the CrewAI creator [@joaomdmoura](https://x.com/joaomdmoura) and the original can be found [here!](https://github.com/joaomdmoura/crewAI-examples/tree/de183dcab06b8021dd403ec4d07116e4ed9b5da8/stock_analysis)
+
+
+
+## some import command:
+ poetry lock && poetry add setuptools 
