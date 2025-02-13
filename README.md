@@ -75,3 +75,8 @@ This repository is largely based on the example from the CrewAI creator [@joaomd
 
 ## some import command:
  poetry lock && poetry add setuptools 
+ 
+
+tanggo
+yvhk3368
+https://tbnx.plus7.plus/login

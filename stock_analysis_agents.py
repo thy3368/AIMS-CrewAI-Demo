@@ -1,21 +1,21 @@
 from crewai import Agent
+from langchain_community.tools.yahoo_finance_news import YahooFinanceNewsTool
+from langchain_openai import ChatOpenAI  # 更改导入
 
-from tools.search_tools import SearchTools
 from tools.calculator_tools import CalculatorTools
+from tools.search_tools import SearchTools
 from tools.sec_tools import SECTools
 
-from langchain_community.tools.yahoo_finance_news import YahooFinanceNewsTool
-from langchain_anthropic import ChatAnthropic
-import os
 
 class StockAnalysisAgent:
     def __init__(self):
-        api_key = os.getenv('ANTHROPIC_API_KEY')
-        self.llm = ChatAnthropic(
-            anthropic_api_key=api_key,
-            model="claude-3-sonnet-20240229"
+        self.llm = ChatOpenAI(
+            api_key="sk-XvWvy8rf8ewno0vVFmtgOMidGb5i3h1qNQmer7bE2buY6hlK",
+            model_name="deepseek-chat",
+            openai_api_base='https://tbnx.plus7.plus/v1',
+            max_tokens=1024
         )
-        
+
     def financial_analyst(self):
         # Create and return a financial analyst agent
         return Agent(
@@ -31,7 +31,7 @@ class StockAnalysisAgent:
                 SECTools.search_10q
             ]
         )
-    
+
     def research_analyst(self):
         # Create and return a research analyst agent
         return Agent(
@@ -46,7 +46,7 @@ class StockAnalysisAgent:
                 YahooFinanceNewsTool()
             ]
         )
-    
+
     def investment_advisor(self):
         # Create and return an investment advisor agent
         return Agent(
