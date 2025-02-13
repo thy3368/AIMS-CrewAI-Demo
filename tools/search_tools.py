@@ -1,7 +1,9 @@
 import json
 import os
 
-from serpapi import GoogleSearch
+# from serpapi import GoogleSearch
+from serpapi.google_search import GoogleSearch
+
 from langchain.tools import tool
 
 class SearchTools():

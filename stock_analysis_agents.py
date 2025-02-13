@@ -6,12 +6,16 @@ from tools.sec_tools import SECTools
 
 from langchain_community.tools.yahoo_finance_news import YahooFinanceNewsTool
 from langchain_anthropic import ChatAnthropic
+import os
 
 class StockAnalysisAgent:
     def __init__(self):
-        # Initialize the language model for all agents
-        self.llm = ChatAnthropic(model="claude-3-5-sonnet-20240620")
-
+        api_key = os.getenv('ANTHROPIC_API_KEY')
+        self.llm = ChatAnthropic(
+            anthropic_api_key=api_key,
+            model="claude-3-sonnet-20240229"
+        )
+        
     def financial_analyst(self):
         # Create and return a financial analyst agent
         return Agent(
