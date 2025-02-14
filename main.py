@@ -1,17 +1,17 @@
 from crewai import Crew
-from textwrap import dedent
+from dotenv import load_dotenv
 
 from stock_analysis_agents import StockAnalysisAgent
 from stock_analysis_tasks import StockAnalysisTasks
 
-from dotenv import load_dotenv
 load_dotenv()
+
 
 class StockAnalysisCrew:
     def __init__(self, company):
         # Initialize the crew with a company to analyze
         self.company = company
-    
+
     def run(self):
         # Create instances of agents and tasks
         agents = StockAnalysisAgent()
@@ -37,7 +37,8 @@ class StockAnalysisCrew:
         # Execute the crew's tasks and return the result
         result = crew.kickoff()
         return result
-    
+
+
 if __name__ == "__main__":
     print("## Welcome to the Stock Analysis Crew! ##")
     # Get user input for the company to analyze
